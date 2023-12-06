@@ -8,7 +8,7 @@ let uploaded = false;
 async function onUpload() {
   STATUS_ELEMENT.innerText = "Loading...";
 
-  fetch("/upload/zip").then(onUploadFinished);
+  fetch("/upload/zip", { method: 'POST' }).then(onUploadFinished);
 }
 
 async function onUploadFinished(response) {
