@@ -61,14 +61,6 @@ module.exports.makeUploadHandler = function (unpack) {
       return respondWithError(res, e, "Unable to parse manifest.json");
     }
 
-    if (manifest.version <= state.getExtension()?.version) {
-      return respondWithError(
-        res,
-        undefined,
-        "Please increase the version field in the manifest."
-      );
-    }
-
     manifest.update_url = `http://${req.hostname}:${state.PORT}/updates.xml`;
 
     try {
