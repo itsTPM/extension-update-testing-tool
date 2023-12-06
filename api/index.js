@@ -15,7 +15,6 @@
 const state = require("./state");
 const utils = require("./utils");
 
-const bodyParser = require("body-parser");
 const express = require("express");
 
 const app = express();
@@ -24,17 +23,8 @@ const app = express();
 app.use("/", express.static("public"));
 
 // Handle zip based uploads automatically
-app.use(
-  bodyParser.raw({ type: "application/zip", limit: Number.POSITIVE_INFINITY })
-);
 
 app.get("/status", require("./routes/status"));
-
-app.post(
-  "/upload/directory",
-  require("./utils").setupTmpDirectory,
-  require("./routes/upload/directory")
-);
 
 app.post(
   "/upload/zip",

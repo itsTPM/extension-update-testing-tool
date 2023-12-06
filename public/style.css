@@ -1,100 +1,114 @@
-/* Copyright 2023 Google LLC
+/* CSS Reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', 'Noto Sans', 'Segoe UI', sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+}
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    https://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License. */
-
-.container {
-  font-family: Arial;
-  min-height: 100vh;
+body {
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 100vh;
+  min-width: 100vw;
+  gap: 40px;
+}
+
+ul {
+  gap: 10px;
+  display: flex;
   flex-direction: column;
-  user-select: none;
-  font-size: 15px;
+  list-style-type: none;
 }
 
-section#instructions {
-  width: 500px;
+li::before {
+  content: '>';
+  margin-right: 5px;
+  font-weight: 900;
 }
 
-section#instructions[data-disabled] {
-  opacity: 0.4;
-  pointer-events: none;
+button {
+  padding: 10px 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s linear;
+  width: 100%;
 }
 
-details {
-  margin-top: 10px;
-  border: 1px solid #aaaaaa;
-  border-radius: 11px;
-  padding: 10px 13px;
-  background: white;
-  user-select: text;
+button:hover {
+  background-color: #e0e0e0;
 }
 
-details summary {
-  user-select: none;
+code {
+  font-family: 'Roboto Slab', monospace;
+  background-color: #292929;
+  border: 1px solid #ddd;
+  color: #fff;
+  border-radius: 4px;
+  padding: 10px;
+  display: inline-block;
 }
 
-details[open] summary {
-  margin-bottom: 15px;
+kbd {
+  font-family: 'Roboto Slab', monospace;
+  background-color: #464343;
+  color: #fff;
+  border-radius: 4px;
+  display: inline;
+  padding: 2px;
 }
 
-details p {
-  margin: 5px 0;
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 600px;
 }
 
-details code {
-  display: block;
-  overflow: scroll;
-  background: #323232;
-  color: white;
-  padding: 6px 12px;
-  white-space: nowrap;
-  border-radius: 3px;
-  margin: 6px 0px;
-  user-select: all;
+.uploader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 #upload {
-  width: 500px;
-  height: 300px;
   border: 4px dashed grey;
-  border-radius: 10px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-#upload:hover {
-  background: #fafafa;
+  padding: 40px 20px;
 }
 
 #upload input {
   display: none;
 }
 
-button {
-  margin-top: 5px;
-  width: calc(100% - 40px);
-  margin: 0 20px 10px 20px;
-  padding: 10px 5px;
-  background-color: #3f51b5;
-  border-radius: 5px;
-  border: none;
-  color: white;
+.guide {
+  padding: 25px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 }
 
-section#uploader p {
-  opacity: 0.8;
-  margin-top: 20px;
+.guide__element {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.guide__element h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 10px;
 }
