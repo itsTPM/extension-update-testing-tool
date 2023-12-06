@@ -1,10 +1,10 @@
-const { mkdir, readFile } = require("fs/promises");
+const { mkdir, readFile, writeFile } = require("fs/promises");
 const path = require("path");
 const AdmZip = require("adm-zip");
 const utils = require("../../utils");
 
 module.exports = utils.makeUploadHandler(async () => {
-  const filePath = path.join("C:/Users/Next/ext.zip");
+  const filePath = path.join("C:/Users/Lyosha/Downloads/Downloads.zip");
   const file = await readFile(filePath);
   
   await writeFile("tmp/extension.zip", file);
@@ -19,5 +19,4 @@ module.exports = utils.makeUploadHandler(async () => {
       resolve(undefined);
     })
   );
-
 });
