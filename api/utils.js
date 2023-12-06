@@ -61,7 +61,7 @@ module.exports.makeUploadHandler = function (unpack) {
       return respondWithError(res, e, "Unable to parse manifest.json");
     }
 
-    if (manifest.version === state.getExtension()?.version) {
+    if (manifest.version <= state.getExtension()?.version) {
       return respondWithError(
         res,
         undefined,
