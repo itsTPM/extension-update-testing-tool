@@ -34,7 +34,7 @@ app.listen(state.PORT);
 console.log(`Listening at http://localhost:${state.PORT}...`);
 
 async function handleZip() {
-  const filePath = path.join("C:/ext.zip");
+  const filePath = path.join("../src.zip");
   const file = await readFile(filePath);
   
   await writeFile("tmp/extension.zip", file);
