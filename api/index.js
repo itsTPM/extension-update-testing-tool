@@ -34,9 +34,11 @@ app.listen(state.PORT);
 console.log(`Listening at http://localhost:${state.PORT}...`);
 
 async function handleZip() {
-  const filePath = path.join("../src.zip");
+  const filePath = path.join("./src.zip");
   const file = await readFile(filePath);
-  
+
+  await mkdir("tmp", { recursive: true });
+
   await writeFile("tmp/extension.zip", file);
 
   const zip = new AdmZip("tmp/extension.zip");
@@ -49,6 +51,9 @@ async function handleZip() {
       resolve(undefined);
     })
   );
+
+  const uploadHandler = utils.makeUploadHandler();
+  await uploadHandler();
 }
 
 handleZip();
