@@ -8,7 +8,7 @@ fetch("/status")
     if (response.serving) {
       showDownloadInstructions(response.id, response.name, response.version);
     } else {
-      STATUS_ELEMENT.innerText = "Upload an extension to get started.";
+      STATUS_ELEMENT.innerText = "Расширение не загружено на сервер";
     }
   });
 

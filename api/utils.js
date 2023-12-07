@@ -50,7 +50,7 @@ module.exports.makeUploadHandler = function (unpack) {
       // Read manifest.json from disk
       manifestBuffer = await readFile("tmp/unpacked/manifest.json");
     } catch (e) {
-      return respondWithError(res, e, "Unable to open manifest.json");
+      return respondWithError(res, e, "Не удалось прочесть manifest.json");
     }
 
     let manifest;
@@ -58,7 +58,7 @@ module.exports.makeUploadHandler = function (unpack) {
     try {
       manifest = JSON.parse(manifestBuffer.toString("utf-8"));
     } catch (e) {
-      return respondWithError(res, e, "Unable to parse manifest.json");
+      return respondWithError(res, e, "Не удалось спарсить manifest.json");
     }
 
     manifest.update_url = `http://${req.hostname}:${state.PORT}/updates.xml`;
@@ -66,14 +66,14 @@ module.exports.makeUploadHandler = function (unpack) {
     try {
       await writeFile("tmp/unpacked/manifest.json", JSON.stringify(manifest));
     } catch (e) {
-      return respondWithError(res, e, "Unable to write updated manifest.json");
+      return respondWithError(res, e, "Не удалось записать обновленный manifest.json");
     }
 
     if (!manifest.name || !manifest.version) {
       return respondWithError(
         res,
         undefined,
-        "Manifest is missing name or version."
+        "Manifest не содержит name или version"
       );
     }
 
@@ -84,13 +84,13 @@ module.exports.makeUploadHandler = function (unpack) {
       id = result.id;
       packed = result.packed;
     } catch (e) {
-      return respondWithError(res, e, "Unable to generated signed crx.");
+      return respondWithError(res, e, "Не удалось подписать crx.");
     }
 
     try {
       await writeFile("tmp/extension.crx", packed);
     } catch (e) {
-      return respondWithError(res, e, "Unable to write crx to disk.");
+      return respondWithError(res, e, "Не удалось записать crx на диск.");
     }
 
     state.setExtension(id, manifest.name, manifest.version);
@@ -109,7 +109,7 @@ module.exports.makeUploadHandler = function (unpack) {
 
 function respondWithError(res, error, message) {
   if (error) {
-    console.error("Error uploading new extension:", error);
+    console.error("Ошибка при загрузке расширения:", error);
   }
 
   res.setHeader("Content-Type", "application/json");
@@ -125,7 +125,7 @@ function respondWithError(res, error, message) {
 module.exports.requireExtensionMiddleware = async function (req, res, next) {
   if (!state.getExtension()) {
     res.status(404);
-    res.send("No extension found.");
+    res.send("Расширение не найдено.");
     return;
   }
 
