@@ -1,6 +1,7 @@
 const { readFile, writeFile } = require("fs/promises");
 const crx = require("./crx");
 const state = require("./state");
+require('dotenv').config()
 
 module.exports.makeUploadHandler = function (unpack) {
   return async () => {
@@ -24,7 +25,7 @@ module.exports.makeUploadHandler = function (unpack) {
       return console.log("Не удалось спарсить manifest.json");
     }
 
-    manifest.update_url = `http://192.168.1.5:${state.PORT}/updates.xml`;
+    manifest.update_url = `${process.env.URL}:${state.PORT}/updates.xml`;
 
     try {
       await writeFile("tmp/unpacked/manifest.json", JSON.stringify(manifest));
