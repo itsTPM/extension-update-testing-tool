@@ -8,12 +8,13 @@ fetch("/status")
     if (response.serving) {
       showDownloadInstructions(response.id, response.name, response.version);
     } else {
-      STATUS_ELEMENT.innerText = "Расширение не загружено на сервер";
+      STATUS_ELEMENT.innerText = "[!] Расширение не загружено на сервер";
+      STATUS_ELEMENT.classList.add("error");
     }
   });
 
 function showDownloadInstructions(id, name, version) {
-  STATUS_ELEMENT.innerText = `Serving "${name}" version ${version}`;
+  STATUS_ELEMENT.innerText = `Готово к установке: ${name} версии ${version}`;
 
   WINDOWS_POLICY_ID.innerText = id;
   WINDOWS_POLICY_HOST.innerText = window.location.origin;

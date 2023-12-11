@@ -97,3 +97,10 @@ kbd {
 #status {
   font-size: 18px;
 }
+
+.error {
+  background-color: rgb(216, 66, 66);
+  color: #e0e0e0;
+  padding: 15px;
+  border-radius: 4px;  
+}
