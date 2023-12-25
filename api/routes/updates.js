@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-const state = require("../state");
+const state = require('../state');
 
 module.exports = (req, res) => {
-  res.setHeader("Content-Type", "application/xml");
+  res.setHeader('Content-Type', 'application/xml');
 
   const { id, version } = state.getExtension();
 
@@ -24,7 +24,7 @@ module.exports = (req, res) => {
 <?xml version='1.0' encoding='UTF-8'?>
 <gupdate xmlns='http://www.google.com/update2/response' protocol='2.0'>
   <app appid='${id}'>
-    <updatecheck codebase='${process.env.UPDATE_URL}' version='${version}' />
+    <updatecheck codebase='${process.env.UPDATE_URL}/extension.crx' version='${version}' />
   </app>
 </gupdate>
   `.trim());
