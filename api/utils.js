@@ -25,7 +25,7 @@ module.exports.makeUploadHandler = function (unpack) {
       return console.log('Не удалось спарсить manifest.json');
     }
 
-    manifest.update_url = `${process.env.URL}:${state.PORT}/updates.xml`;
+    manifest.update_url = `${process.env.UPDATE_URL}/updates.xml`;
 
     try {
       await writeFile('tmp/unpacked/manifest.json', JSON.stringify(manifest));

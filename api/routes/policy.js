@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-const uuid = require("uuid");
-const state = require("../state");
+const uuid = require('uuid');
+const state = require('../state');
 
 module.exports = (_, res) => {
-  res.setHeader("Content-Disposition", "attachment");
-  res.setHeader("Content-Type", "application/xml");
+  res.setHeader('Content-Disposition', 'attachment');
+  res.setHeader('Content-Type', 'application/xml');
   res.send(generateMobileConfig(state.getExtension().id));
 };
 
@@ -47,7 +47,7 @@ function generateMobileConfig(extensionId) {
                 </array>
                 <key>ExtensionInstallSources</key>
                 <array>
-                  <string>http://localhost:${state.PORT}/*</string>
+                  <string>${process.env.UPDATE_URL}/*</string>
                 </array>
               </dict>
             </dict>
