@@ -1,6 +1,6 @@
 const STATUS_ELEMENT = document.getElementById('status');
-const WINDOWS_POLICY_ID = document.getElementsByClassName('windows-policy-id');
-const WINDOWS_POLICY_HOST = document.getElementsByClassName('windows-policy-host');
+const WINDOWS_POLICY_ID = document.getElementById('windows-policy-id');
+const WINDOWS_POLICY_HOST = document.getElementById('windows-policy-host');
 
 fetch('/status')
   .then((response) => response.json())
@@ -15,14 +15,8 @@ fetch('/status')
 
 function showDownloadInstructions(id, name, version) {
   STATUS_ELEMENT.innerText = `Готово к установке: ${name} версии ${version}`;
-
-  for (let el of WINDOWS_POLICY_ID) {
-    el.innerText = id;
-  }
-
-  for (let el of WINDOWS_POLICY_HOST) {
-    el.innerText = window.location.origin;
-  }
+  WINDOWS_POLICY_ID.innerText = id;
+  WINDOWS_POLICY_HOST.innerText = `${window.location.origin}/*`;
 }
 
 const urlParams = new URLSearchParams(window.location.search);
