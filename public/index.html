@@ -1,50 +1,114 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Установка расширения</title>
+  </head>
 
-<head>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Extension Update Server</title>
-</head>
-
-<body>
-  <span id="status">Кажется, что-то сломалось..</span>
-  <div class="container">
-    <div class="guide">
-      <div class="guide__element">
-        <h2>Chrome для Windows</h2>
-        <ul>
-          <li>
-            Нажмите <kbd>Win + R</kbd> одновременно, введите <kbd>cmd</kbd> и нажмите <kbd>Enter</kbd>
-          </li>
-          <li>
-            Запустите следующие команды в командной строке. Они добавят настройку в Chrome, разрешающую установку
-            расширения:
-            <code>reg add HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallAllowlist /v 1 /t REG_SZ /d <span id="windows-policy-id"></span> /f</code>
-            <br><code>reg add HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallSources /v 1 /t REG_SZ /d <span id="windows-policy-host"></span>/* /f</code>
-          </li>
-          <li>
-            Откройте новую вкладку, перейдите на <kbd>chrome://policy</kbd> и нажмите "Перезагрузить правила"
-          </li>
-          <li>
-            Теперь вы можете установить расширение
-          </li>
-        </ul>
-        <a href="/extension.crx"><button>Установить</button></a>
+  <body>
+    <span id="status">Кажется, что-то сломалось..</span>
+    <div class="container">
+      <div class="guide" id="chrome">
+        <div class="guide__element">
+          <h2>Chrome для Windows</h2>
+          <ul>
+            <li>
+              Нажмите
+              <kbd>Win + R</kbd>
+              одновременно, введите
+              <kbd>cmd</kbd>
+              и снова одновременно нажмите
+              <kbd>Ctrl + Shift + Enter</kbd>
+            </li>
+            <li>
+              Запустите следующие команды в командной строке. Они добавят настройку в Chrome, разрешающую установку
+              расширения:
+              <code>
+                reg add HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallAllowlist /v 1 /t REG_SZ /d
+                <span id="windows-policy-id"></span>
+                /f
+              </code>
+              <br />
+              <code>
+                reg add HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallSources /v 1 /t REG_SZ /d
+                <span id="windows-policy-host"></span>
+                /* /f
+              </code>
+            </li>
+            <li>
+              Откройте новую вкладку, перейдите на
+              <kbd>chrome://policy</kbd>
+              и нажмите "Перезагрузить правила"
+            </li>
+            <li>Теперь вы можете установить расширение</li>
+          </ul>
+          <a href="/extension.crx"><button>Установить</button></a>
+        </div>
       </div>
-      <!-- <div class="guide__element">
-        <h2>Chrome for Mac</h2>
-        <ul>
-          Download and open the policy file: <a href="/policy.mobileconfig">policy.mobileconfig</a>
-          Install the policy at Settings > Profiles from the menu bar
-          Reload policies in Chrome at chrome://policy
-          Install the extension:
-        </ul>
-        <a href="/extension.crx"><button>Install Extension</button></a>
-      </div> -->
+      <div class="guide" id="edge">
+        <div class="guide__element">
+          <h2>Edge для Windows</h2>
+          <ul>
+            <li>
+              Нажмите
+              <kbd>Win + R</kbd>
+              одновременно, введите
+              <kbd>cmd</kbd>
+              и снова одновременно нажмите
+              <kbd>Ctrl + Shift + Enter</kbd>
+            </li>
+            <li>
+              Запустите следующие команды в командной строке. Они добавят настройку в Chrome, разрешающую установку
+              расширения:
+              <code>
+                reg add HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallAllowlist /v 1 /t REG_SZ /d
+                <span id="windows-policy-id"></span>
+                /f
+              </code>
+              <br />
+              <code>
+                reg add HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallSources /v 1 /t REG_SZ /d
+                <span id="windows-policy-host"></span>
+                /* /f
+              </code>
+            </li>
+            <li>
+              Откройте новую вкладку, перейдите на
+              <kbd>edge://policy</kbd>
+              и нажмите "Перезагрузить правила"
+            </li>
+            <li>Теперь вы можете установить расширение</li>
+          </ul>
+          <a href="/extension.crx"><button>Установить</button></a>
+        </div>
+      </div>
+      <div class="guide" id="yandex">
+        <div class="guide__element">
+          <h2>Яндекс Браузер</h2>
+          <ul>
+            <li>
+              Загрузите файл расширения по
+              <a href="/extension.crx">этой ссылке</a>
+            </li>
+            <li>
+              Откройте новую вкладку, перейдите на
+              <kbd>browser://tune</kbd>
+              и перетащите файл расширения на страницу
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="guide" id="opera">
+        <div class="guide__element">
+          <h2>Opera</h2>
+          <ul>
+            <li>Загрузите расширение и подтвердите установку</li>
+          </ul>
+          <a href="/extension.crx"><button>Установить</button></a>
+        </div>
+      </div>
     </div>
-  </div>
-  <script src="index.js"></script>
-</body>
-
+    <script src="assets/js/index.js"></script>
+  </body>
 </html>

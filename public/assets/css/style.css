@@ -1,0 +1,131 @@
+@import url('fonts.css');
+:root {
+  --main-bg-color: #121212;
+  --main-text-color: #e0e0e0;
+  --main-font: 'Open Sans', 'Segoe UI', sans-serif;
+  --main-border-color: #222;
+  --hover-bg-color: #1b1b1b;
+  --link-color: #6b81be;
+  --hover-link-color: #4467c5;
+}
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
+  font-family: var(--main-font);
+  gap: 20px;
+}
+
+ul {
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+}
+
+li::before {
+  content: '>';
+  margin-right: 5px;
+  font-weight: 900;
+}
+
+button {
+  padding: 10px 15px;
+  border: 1px solid var(--main-border-color);
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s linear;
+  width: 100%;
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
+}
+
+button:hover {
+  background-color: var(--hover-bg-color);
+}
+
+code {
+  font-family: 'Roboto Slab', monospace;
+  background-color: var(--hover-bg-color);
+  border: 1px solid var(--main-border-color);
+  color: var(--main-text-color);
+  border-radius: 4px;
+  padding: 10px;
+  display: inline-block;
+  margin: 10px 0px;
+}
+
+kbd {
+  font-family: 'Roboto Slab', monospace;
+  background-color: var(--hover-bg-color);
+  color: var(--main-text-color);
+  border-radius: 4px;
+  display: inline;
+  padding: 2px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--link-color);
+  transition: color 0.25s linear;
+}
+
+a:hover {
+  color: var(--hover-link-color);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 600px;
+}
+
+.guide {
+  padding: 25px;
+  border: 1px solid var(--main-border-color);
+  border-radius: 8px;
+  display: none;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.guide__element {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.guide__element h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+#status {
+  font-size: 18px;
+}
+
+.error {
+  background-color: rgb(216, 66, 66);
+  color: var(--main-text-color);
+  padding: 15px;
+  border-radius: 4px;
+}
+
+.display-flex {
+  display: flex !important;
+}
