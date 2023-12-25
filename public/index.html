@@ -48,39 +48,19 @@
       </div>
       <div class="guide" id="edge">
         <div class="guide__element">
-          <h2>Edge для Windows</h2>
+          <h2>Microsoft Edge</h2>
           <ul>
             <li>
-              Нажмите
-              <kbd>Win + R</kbd>
-              одновременно, введите
-              <kbd>cmd</kbd>
-              и снова одновременно нажмите
-              <kbd>Ctrl + Shift + Enter</kbd>
-            </li>
-            <li>
-              Запустите следующие команды в командной строке. Они добавят настройку в Chrome, разрешающую установку
-              расширения:
-              <code>
-                reg add HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallAllowlist /v 1 /t REG_SZ /d
-                <span class="windows-policy-id"></span>
-                /f
-              </code>
-              <br />
-              <code>
-                reg add HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallSources /v 1 /t REG_SZ /d
-                <span class="windows-policy-host"></span>
-                /* /f
-              </code>
+              Загрузите файл расширения по
+              <a href="/extension.crx">этой ссылке</a>
+              (пкм -> сохранить ссылку как)
             </li>
             <li>
               Откройте новую вкладку, перейдите на
-              <kbd>edge://policy</kbd>
-              и нажмите "Перезагрузить правила"
+              <kbd>edge://extensions/</kbd>
+              и перетащите файл расширения на страницу
             </li>
-            <li>Теперь вы можете установить расширение</li>
           </ul>
-          <a href="/extension.crx"><button>Установить</button></a>
         </div>
       </div>
       <div class="guide" id="yandex">
@@ -90,6 +70,7 @@
             <li>
               Загрузите файл расширения по
               <a href="/extension.crx">этой ссылке</a>
+              (пкм -> сохранить ссылку как)
             </li>
             <li>
               Откройте новую вкладку, перейдите на
